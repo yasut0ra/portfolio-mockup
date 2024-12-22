@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './styles/animations.css';
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased bg-dark text-white;
+  }
+}
+
+/* Force dark mode by default */
+:root {
+  color-scheme: dark;
+}
+
+html {
+  @apply dark;
+}
+
+/* Dark mode specific styles */
+.dark {
+  @apply bg-dark;
+  color-scheme: dark;
+}
+
+/* Animation utilities */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+  transition-duration: 300ms;
+}
+
+.hover\:opacity-80:hover {
+  opacity: 0.8;
+  transition-duration: 200ms;
+}
+
+/* Link animations */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.4s ease-in-out;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
